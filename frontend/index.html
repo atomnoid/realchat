@@ -1,17 +1,80 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Real-Time Chat</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RealChat — Dark & Bright</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Socket.io client -->
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>Real-Time Chat</h1>
+  <div id="app" class="theme-dark">
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">RC</div>
+        <div class="title">RealChat</div>
+      </div>
 
-  <input id="messageInput" placeholder="Enter message" />
-  <button onclick="sendMessage()">Send</button>
+      <div class="top-actions">
+        <button id="themeToggle" class="icon-btn" title="Toggle theme">🌗</button>
+        <div class="username-area">
+          <input id="usernameInput" maxlength="20" placeholder="Enter name" />
+          <button id="saveName" class="btn">Save</button>
+        </div>
+      </div>
+    </header>
 
-  <ul id="messages"></ul>
+    <main class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="sidebar-title">Rooms</div>
+          <div class="room-create">
+            <input id="newRoomInput" placeholder="New room name (#general)" maxlength="30" />
+            <button id="createRoomBtn" class="btn small">Create</button>
+          </div>
+        </div>
 
-  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-  <script src="script.js"></script>
+        <ul id="roomsList" class="rooms-list">
+          <!-- populated by JS -->
+        </ul>
+
+        <div class="sidebar-footer">
+          <div class="status">Status: <span id="connStatus">connected</span></div>
+          <div class="user-count">Users: <span id="userCount">1</span></div>
+        </div>
+      </aside>
+
+      <!-- Chat area -->
+      <section class="chat">
+        <div class="chat-header">
+          <h2 id="roomTitle"># general</h2>
+          <div class="chat-meta">
+            <span id="roomUsers">1 user</span>
+          </div>
+        </div>
+
+        <div id="messages" class="messages" aria-live="polite">
+          <!-- messages appended here -->
+        </div>
+
+        <div id="typingIndicator" class="typing">Someone is typing...</div>
+
+        <form id="chatForm" class="chat-form" autocomplete="off">
+          <input id="messageInput" placeholder="Message #general (press Enter to send)" />
+          <button type="submit" class="btn send">Send</button>
+        </form>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
