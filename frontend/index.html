@@ -1,13 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealChat</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div id="app" class="theme-dark">
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <h2 class="logo">RealChat</h2>
+
+            <div class="section">
+                <h3>Rooms</h3>
+                <ul id="roomsList"></ul>
+
+                <div class="room-create">
+                    <input id="newRoomInput" placeholder="New room…" />
+                    <button id="createRoomBtn">+</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Profile</h3>
+                <input id="usernameInput" placeholder="Your name…" />
+                <button id="saveName">Save</button>
+
+                <button id="themeToggle" class="theme-btn">Toggle Theme</button>
+            </div>
+        </aside>
+
+        <!-- Chat area -->
+        <main id="chat">
+            <header id="chatHeader">
+                <h2 id="roomTitle"># general</h2>
+                <span id="roomUsers">1 user</span>
+                <span id="connStatus" class="status">connecting...</span>
+            </header>
+
+            <div id="messages"></div>
+            <div id="typingIndicator"></div>
+
+            <form id="chatForm">
+                <input id="messageInput" autocomplete="off" placeholder="Message…" />
+            </form>
+        </main>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
 </html>
