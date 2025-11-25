@@ -1,28 +1,12 @@
 {
   "compilerOptions": {
-    /* Language and Environment */
-    "target": "es2020",
+    "target": "ES2020",
     "module": "commonjs",
-    "moduleResolution": "bundler",
-    "lib": ["es2020"],
-    "types": ["node"],
-
-    /* Paths */
     "rootDir": "./src",
     "outDir": "./dist",
-
-    /* Strictness */
     "strict": true,
-    "skipLibCheck": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-
-    /* Useful Options */
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "noImplicitAny": false
+    "skipLibCheck": true
   },
-
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"]
 }
