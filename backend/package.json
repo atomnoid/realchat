@@ -1,0 +1,17 @@
+{
+  "name": "realchat-backend",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "nodemon --watch src --exec ts-node server.ts",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "ws": "^8.17.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.0",
+    "nodemon": "^2.0.22"
+  }
+}
