@@ -3,11 +3,8 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "strict": true,
-    "jsx": "preserve",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "isolatedModules": true
+    "strict": false,
+    "skipLibCheck": true
   },
-  "include": ["src", "index.html"]
+  "include": ["src/**/*"]
 }
